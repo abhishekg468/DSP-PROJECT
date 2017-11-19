@@ -52,12 +52,14 @@ portion of radio broadcasts in modern times. Many listeners
 are disinterested in these commercials as they tune in to listen
 to radio programmes. The primary revenue stream for social
 and entertainment media is advertisement and entities like
-YouTube and Google depend on them for revenue. However,
+YouTube and Google depend on them for revenue.
+					<br>However,
 users of these social media do not like the commercial
 breaks; not only is this distracting and annoying for listeners, it
-also has adverse effects on consumer behavior . In this work
+also has adverse effects on consumer behavior . 
+					<br>In this work
 a radio stream monitoring system is designed and
-implemented to detect these advertisements
+implemented to detect these advertisements.
 					<!-- Stop edit here -->
 
 				</div>
@@ -69,7 +71,8 @@ implemented to detect these advertisements
 						<!-- Start edit here  -->
 						This project aims at identifying and removing commercials segments from 
 						audio signals acquired from radio feeds. The audio feed is first segmented
-						into a number of consecutive audio clips. The task is to identify specific
+						into a number of consecutive audio clips. 
+						<br>The task is to identify specific
 						features that differentiate a commercial clip from a non-commercial one.
 						<!-- Stop edit here -->
 
@@ -102,20 +105,27 @@ implemented to detect these advertisements
 					<div class="text">
 
 						<!-- Start edit here  -->
-						Intro to Kalman filter:
-Kalman filter is a simple and fast algorithm which can be used to give an estimate of state based on erroneous sensor measurements. In case of linear systems, the estimate comes out to be the best. It can also predict states which cannot be directly obtained from sensor measurements. Some applications are  in robotics, trackpad and even in the Apollo Project. The best thing about this filter is it’s simple mathematical structure which makes it feasible to be applied in real time systems.
-There are essentially 2 steps in a Kalman filter – Motion/Time Update step and Measurement Update Step.
+						<b>Intro to Kalman filter:</b>
+						<br>
+Kalman filter is a simple and fast algorithm which can be used to give an estimate of state based on erroneous sensor measurements. 
+						In case of linear systems, the estimate comes out to be the best. 
+						It can also predict states which cannot be directly obtained from sensor measurements.
+						Some applications are  in robotics, trackpad and even in the Apollo Project. 
+						<br>The best thing about this filter is it’s simple mathematical structure which makes it feasible to be applied in real time systems.
+<br>There are essentially 2 steps in a Kalman filter – 
+						<br><i>Motion/Time Update step and Measurement Update Step.</i>
 					<div class="image">
 					<img src="kalman.jpg" alt="This text displays when the image is umavailable" width="500px" height=""/>
 						
 					Use of Kalman Filter in Commercial Detection:
 We make use of a simple 1D Kalman filter which is equivalent to Bayesian Filter. Our state is a 1D variable X with associated uncertainly (variance) P. An audio file is read in clips of 3 seconds and with every clip, the state is updated (through one motion update and one measurement update). If the state comes as positive then the clip is considered as commercial and if it comes as negative it is considered music.
 In every clip:
+						<br>
 						
 						1)	Features are extracted, and these features are used as used as sensor readings.
 						<br>
-2)	Measurement Update: The sensor readings lead to a measurement in state. X and P are updated.<br>
-3)	Motion Update: The state is moved closer to origin and the uncertainly (P) is increased.<br>
+2)	<b>Measurement Update:</b> The sensor readings lead to a measurement in state. X and P are updated.<br>
+3)	<b>Motion Update:</b> The state is moved closer to origin and the uncertainly (P) is increased.<br>
 Here is the justification for the approach:
 1)	Since previous state has certain amount of say in the next state, the erroneous detection of commercials are filtered. The Kalman Filter in some sense is preventing sudden changes in  state. E.g. It is unlikely that a single clip of 3 seconds is commercial while all the neighbouring clips to the left and right are music.
 <br>
