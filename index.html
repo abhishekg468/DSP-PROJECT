@@ -121,32 +121,14 @@ implemented to detect these advertisements.
 					<div class="text">
 
 						<!-- Start edit here  -->
-						<b>Intro to Kalman filter:</b>
-						<br>
-Kalman filter is a simple and fast algorithm which can be used to give an estimate of state based on erroneous sensor measurements. 
-						In case of linear systems, the estimate comes out to be the best. 
-						It can also predict states which cannot be directly obtained from sensor measurements.
-						Some applications are  in robotics, trackpad and even in the Apollo Project. 
-						<br>The best thing about this filter is it’s simple mathematical structure which makes it feasible to be applied in real time systems.
-<br>There are essentially 2 steps in a Kalman filter – 
-						<br><i>Motion/Time Update step and Measurement Update Step.</i>
-					<div class="image">
-					<img src="kalman.jpg" alt="This text displays when the image is umavailable" width="300px" height=""/>
-						
-					<br><b>Use of Kalman Filter in Commercial Detection:</b>
-We make use of a simple 1D Kalman filter which is equivalent to <i>Bayesian Filter.</i> Our state is a 1D variable X with associated uncertainly (variance) P. An audio file is read in clips of 3 seconds and with every clip, the state is updated (through one motion update and one measurement update). If the state comes as positive then the clip is considered as commercial and if it comes as negative it is considered music.
-<br>In every clip:
-						<br>
-						
-						1)	Features are extracted, and these features are used as used as sensor readings.
-						<br>
-2)	<b>Measurement Update:</b> The sensor readings lead to a measurement in state. X and P are updated.<br>
-3)	<b>Motion Update:</b> The state is moved closer to origin and the uncertainly (P) is increased.<br>
-<br>Here is the justification for the approach:
-						<br>
-1)	Since previous state has certain amount of say in the next state, the erroneous detection of commercials are filtered. The Kalman Filter in some sense is preventing sudden changes in  state. E.g. It is unlikely that a single clip of 3 seconds is commercial while all the neighbouring clips to the left and right are music.
-<br>
-						2)	If an advertisement is running for a long time than it is likely that it will end soon. Similar is the case with music. The motion update step moves the state towards origin (i.e., commercial towards music and music towards commercial).
+					We focused on identifying key features in the audio stream that are only present in advertising.
+					These features need to be consistent across most, if not all, advertisements, while
+					also being simple to calculate.
+					Thus our research is split into several key steps:
+						<ul> Research and discover features that differ between advertising and music
+						<ul> Implement algorithms that can extract attributes corresponding to these features
+						<ul> Use Kalman Filter algorithms to create a function with these attributes as
+						inputs, and the class (advertising or music) as output
 
 						
 						<!-- Stop edit here -->
@@ -158,7 +140,18 @@ We make use of a simple 1D Kalman filter which is equivalent to <i>Bayesian Filt
 					<div class="text">
 
 						<!-- Start edit here  -->
-						Write something here.
+						Our report starts with the understanding and analysis of advertisements in section 1.1. 
+						<br>This results in the discovery of key features that can be used to distinguish between advertising
+						and music.The condensed block diagram of our proposed design is shown section 1.2 followed by various research papers and 
+						related resources used in this project in section 1.3. 
+						<br>The detailed approach is given in section 2. 
+						<br>We implement algorithms to extract 
+						these features before describing the design and implementation of Kalman Filter
+						algorithms in section 3.
+						<br>The results of testing the Kalman Filter algorithms are described in 3.1.
+					        along with the quality of the extracted attributes. 
+						Our discussion section 3.2 then attempts to explain each classifier and its performance. 
+						<br>Finally we discuss our conclusions, summary and future work in section 4.
 						<!-- Stop edit here -->
 
 					</div>
