@@ -192,6 +192,31 @@ implemented to detect these advertisements.
 				<div class="subsection">
 					<div class="heading">2.2 Audio Analyser</div>
 					<div class="text">
+					<ul>
+						<li><b>Spectral Flux and Centroid:</b> Music usually uses more frequencies than speech. 
+							These frequencies tend to change rapidly as new notes are played. This contrasts with 
+							speech where the speaker tends to remain within a thin frequency spectrum, with most 
+							frequencies remaining empty. Thus if we sum how much each frequency changes
+                                                        from one sample period to the next, we can gather a value for how much the audio has changed 
+							in that period. This value will be higher for music or noise than for speech.</li>
+						<li><b>Extreme Frequency Values:</b>This value measures the volume distribution of the audio stream. 
+							Advertising contains some very strong frequencies because it tends to heavily emphasise
+							the speech frequencies, something that music usually does not. By summing the number of frequencies 
+							above and below a certain threshold we obtain a good estimation.</li>
+						 <li><b>Energy Balance:</b>The energy balance compares the sum of the frequencies above 8000Hz with the
+							total sum of all frequency values. This value is significant because speech contains few frequencies 
+							above 8000Hz while instruments contain significant amounts of frequencies in this range. This does
+							not always hold as certain music genres such as rap often contain only speech and drums, and therefore 
+							very few high frequencies for the general volume distribution.</li>
+						 <li><b>Zero crossing:</b>Music is more continous and smooth as compared to Audio advertisement. Speech contains pauses 
+						        unlike music. </li>
+						 <li><b>Volume:</b>The average volume for speech tends to be lower than for music, as speech contains
+							 pauses, which music does not. Volume patterns tend to be more constant for music than for speech,
+							 as the latter contains many more peaks and troughs in each sample period.</li>
+						  <li><b>Spectral Rolloff Frequency:</b>This is a measure of the amount of the right-skewedness of the Energy spectrum. 
+							  The spectral rolloff point is the frequency in the spectrum below a specific value of the total energy is contained.</li>
+
+						
 				</div>
 			</div>
 
