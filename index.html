@@ -365,7 +365,33 @@ implemented to detect these advertisements.
 					<div class="text">
 
 						<!-- Start edit here  -->
-						Write something here.
+						The results show that there is enough difference between advertising and music
+					     that an algorithm that does not understand the content of the audio can still separate
+					   them.We have shown that it is possible to detect advertising in radio broadcasts to a
+					      good (XXX%) accuracy. 
+				        <br>The attributes chosen to define advertising in this project were all extracted from the audio
+					stream. This was not a necessity, but makes our application completely independent of outside 
+					information. If we had relied on attributes such as the time, our application would by necessity
+					have required another information stream, independent of the audio stream.
+					<br>Thus the heavy reliance on attributes the algorithms failed in the following set of situations:
+						<ol>
+							 <li>Any advertisement that consisted of music was classified as music. In essence
+							 this is not wrong, but at the same time it meant that advertisements were wrongly classified.
+							 </li>
+							 <li>The DJ/Rap songs was consistently classified as advertising. This is something that cannot
+							 be fixed by introducing new attributes. Although theoretically there are some 
+							 attributes that distinguish the DJ from advertising (such as the rhythm of speech), these are not very consistent,
+							 and also very hard to classify.
+							 </li>
+							 <li>Some songs simply consisted of speech and music, exactly like advertising.At the same time some advertisements
+							 had music included.
+							 </li>
+						<ol>
+							 <br>Due to the limited time available for our project, there are several steps still required
+							 to make our product usable for the end user. Additionally we have not fully
+							 explored every possible method of detecting advertising.
+
+					
 						<!-- Stop edit here -->
 
 					</div>
@@ -375,7 +401,14 @@ implemented to detect these advertisements.
 					<div class="text">
 
 						<!-- Start edit here  -->
-						Write something here.
+						The success of the Kalman Filter could be extended further by passing more attributes to
+
+it. Perhaps several of the attributes we are filtering provide more meaning when we
+consider their change over time, instead of using their mean value every second.
+At the moment only the volume levels are passed in as attributes, but this could
+easily be extended by using vectors of several attributes.
+<br>Also we can be extented to Kalman Filter in 2-D, with addition of newer attributes like time.
+
 						<!-- Stop edit here -->
 
 					</div>
