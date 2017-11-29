@@ -193,12 +193,24 @@ implemented to detect these advertisements.
 					<div class="heading">2.2 Audio Analyser</div>
 					<div class="text">
 					<ul>
-						<li><b>Spectral Flux and Centroid:</b> Music usually uses more frequencies than speech. 
+						<li><b>Spectral Analysis:</b> Music usually uses more frequencies than speech. 
 							These frequencies tend to change rapidly as new notes are played. This contrasts with 
 							speech where the speaker tends to remain within a thin frequency spectrum, with most 
 							frequencies remaining empty. Thus if we sum how much each frequency changes
                                                         from one sample period to the next, we can gather a value for how much the audio has changed 
-							in that period. This value will be higher for music or noise than for speech.</li>
+							in that period. This value will be higher for music or noise than for speech.
+						        <br>The following classifiers were used:
+								<ol>
+									<li>Spectral flux analysis</li>
+									<div class="image">
+										<img src="Flux.png" alt="This text displays when the image is umavailable" width="229px" height="80"/>
+					
+
+									<li>Spectral Centroid</li>
+									<li>Spectral Roll-Off Frequency</li>
+								</ol>
+							</li>
+									
 						<li><b>Extreme Frequency Values:</b>This value measures the volume distribution of the audio stream. 
 							Advertising contains some very strong frequencies because it tends to heavily emphasise
 							the speech frequencies, something that music usually does not. By summing the number of frequencies 
@@ -215,6 +227,7 @@ implemented to detect these advertisements.
 							 as the latter contains many more peaks and troughs in each sample period.</li>
 						  <li><b>Spectral Rolloff Frequency:</b>This is a measure of the amount of the right-skewedness of the Energy spectrum. 
 							  The spectral rolloff point is the frequency in the spectrum below a specific value of the total energy is contained.</li>
+						</ul>
 
 						
 				</div>
