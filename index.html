@@ -207,32 +207,32 @@ implemented to detect these advertisements.
 									<div class="image">
 										<img src="Flux.png" alt="This text displays when the image is umavailable" width="229px" height="80"/>
 										</div>
-									<li><b>Spectral Centroid</b></li>
+									<br><li><b>Spectral Centroid</b></li>
 									<div class="image">
 										<img src="Centroid.jpg" alt="This text displays when the image is umavailable" width="229px" height="80"/>	
 										</div>
-									<li><b>Spectral Roll-Off Frequency</b></li>
+									<br><li><b>Spectral Roll-Off Frequency</b></li>
 									<div class="image">
 										<img src="RollOff.png" alt="This text displays when the image is umavailable" width="229px" height="80"/>
 										</div>
 										</ol>
 							</li>
 									
-						<li><b>Extreme Frequency Values:</b>This value measures the volume distribution of the audio stream. 
+						<br><li><b>Extreme Frequency Values:</b>This value measures the volume distribution of the audio stream. 
 							Advertising contains some very strong frequencies because it tends to heavily emphasise
 							the speech frequencies, something that music usually does not. By summing the number of frequencies 
 							above and below a certain threshold we obtain a good estimation.</li>
-						 <li><b>Energy Balance:</b>The energy balance compares the sum of the frequencies above 8000Hz with the
+						 <br><li><b>Energy Balance:</b>The energy balance compares the sum of the frequencies above 8000Hz with the
 							total sum of all frequency values. This value is significant because speech contains few frequencies 
 							above 8000Hz while instruments contain significant amounts of frequencies in this range. This does
 							not always hold as certain music genres such as rap often contain only speech and drums, and therefore 
 							very few high frequencies for the general volume distribution.</li>
-						 <li><b>Zero crossing:</b>Music is more continous and smooth as compared to Audio advertisement. Speech contains pauses 
+						 <br><li><b>Zero crossing:</b>Music is more continous and smooth as compared to Audio advertisement. Speech contains pauses 
 						        unlike music. </li>
 								<div class="image">
 										<img src="zcr.jpg" alt="This text displays when the image is umavailable" width="229px" height="80" margin-left:1cm/>
 										</div>
-						 <li><b>Volume:</b>The average volume for speech tends to be lower than for music, as speech contains
+						 <br><li><b>Volume:</b>The average volume for speech tends to be lower than for music, as speech contains
 							 pauses, which music does not. Volume patterns tend to be more constant for music than for speech,
 							 as the latter contains many more peaks and troughs in each sample period.</li>
 						<div class="image">
@@ -243,6 +243,48 @@ implemented to detect these advertisements.
 
 						
 				</div>
+					<div class="subsection">
+					<div class="heading">2.3Kalman Filter Algorithms - Design and Implementation</div>
+					<div class="text">
+						Kalman filter is a simple and fast algorithm which can be used to give an estimate of state based on erroneous sensor
+						measurements. In case of linear systems, the estimate comes out to be the best. 
+						It can also predict states which cannot be directly obtained from sensor measurements.
+						Some applications are  in robotics, trackpad and even in the Apollo Project. 
+						<br>The best thing about this filter is it’s simple mathematical structure which makes it feasible to be applied in real 
+						time systems.
+						<br>There are essentially 2 steps in a Kalman filter – 
+						<ol>							
+							<li><b>Motion/Time Update step</b></li>
+							<li><b>Measurement Update Step</b></li>
+						</ol>
+					<div class="image">
+					<img src="kalman.jpg" alt="This text displays when the image is umavailable" width="300px" height=""/>
+						</div>
+						
+					<br><b>Use of Kalman Filter in Commercial Detection:</b>
+						We make use of a simple 1D Kalman filter which is equivalent to <i>Bayesian Filter.</i>
+						Our state is a 1D variable X with associated uncertainly (variance) P. An audio file is read 
+						in clips of 3 seconds and with every clip, the state is updated (through one motion update and 
+						one measurement update). If the state comes as positive then the clip is considered as commercial
+						and if it comes as negative it is considered music.
+						<br>In every clip:
+						<ol>
+							<li><b>Features are extracted</b>, and these features are used as used as sensor readings.</li>
+							<li><b>Measurement Update:</b> The sensor readings lead to a measurement in state. X and P 
+							are updated.</li>
+							<li><b>Motion Update:</b> The state is moved closer to origin and the uncertainly (P) is increased.</li>
+						</ol>		
+						<br>Here is the justification for the approach:
+						<ol>	
+							<li>Since previous state has certain amount of say in the next state, the erroneous detection of commercials are
+								filtered. The Kalman Filter in some sense is preventing sudden changes in  state. E.g. It is unlikely that
+								a single clip of 3 seconds is commercial while all the neighbouring clips to the left and right are music.</li>
+<br>
+							<li>If an advertisement is running for a long time than it is likely that it will end soon. Similar is the case with 
+								music. The motion update step moves the state towards origin (i.e., commercial towards music and music towards
+								commercial).</li>
+						</div>
+					</div>
 			</div>
 
 			<div class="section">
