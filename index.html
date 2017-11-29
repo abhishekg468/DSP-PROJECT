@@ -17,7 +17,7 @@
 			p{display: inline-block;}
 			img{display: block;}
 			.container{width: 90%;position absolute;margin: auto;}
-			.title{position: relative;width: 90%;margin: auto;text-align: center;font-weight: bold;font-size: 70px;padding: 1%;font-family: 'Yanone Kaffeesatz', sans-serif; color: yellow;}
+			.title{position: relative;width: 90%;margin: auto;text-align: center;font-weight: bold;font-size: 90px;padding: 1%;font-family: 'Yanone Kaffeesatz', sans-serif; color: yellow;}
 			.section{position: relative;width: 90%;margin: auto;padding: 2%;}
 			.subsection{position: relative; width: 98%;text-align: justify;padding: 10px;}
 			.heading{position: relative; width: 98%;text-align: left;font-size: 30px;font-family: 'Ubuntu', sans-serif;}
@@ -33,10 +33,10 @@
 			<div class="authors">
 
 				<!-- Start edit here  -->
-				<p>Abhishek Gupta 150108048 EEE</p> &nbsp; &nbsp;
-				<p>Suyash Pati Tripathi 150108038 EEE</p> &nbsp; &nbsp;
+				<p>Abhishek Gupta 150108048 EEE |</p> &nbsp; &nbsp;
+				<p>Suyash Pati Tripathi 150108038 EEE |</p> &nbsp; &nbsp;
 				<p>Ankur Deka 150102006 ECE</p> &nbsp; &nbsp;
-				<p>Parth Pawar 150108022 EEE</p> &nbsp; &nbsp;
+				<p>Parth Pawar 150108022 EEE |</p> &nbsp; &nbsp;
 				<p>Nitesh Khichi 150102042 ECE</p> &nbsp; &nbsp;
 				<!-- Stop edit here -->
 
@@ -176,17 +176,17 @@ implemented to detect these advertisements.
 					<ul>
 						<li><b>Speech:</b> A significant portion of advertisements contained only speech, while 
 						some contained either music or other sound effects in the background.</li>
-						<li><b>Rhythm of Speech:</b> Compared to music and the DJ, advertisements sometimes appeared
+						<br><li><b>Rhythm of Speech:</b> Compared to music and the DJ, advertisements sometimes appeared
 						rushed, as traders attempted to squeeze as much information into as little time as possible.</li>
-						<li><b>Frequency Distribution:</b> Advertisements contain fewer frequencies,
+						<br><li><b>Frequency Distribution:</b> Advertisements contain fewer frequencies,
 						but those frequencies have been compressed to make the audio appear
 						louder. The range of frequencies tends to be smaller than for music, when the
 						advertisement consists of pure speech. For all advertisements the frequency
 						balance is skewed more towards lower frequencies.
-						<li><b>Volume and Volume Distribution:</b> The silent gaps between words mean that the
+						<br><li><b>Volume and Volume Distribution:</b> The silent gaps between words mean that the
 						average volume of speech is lower. Also the change in volume over time is
 						higher for advertisements for the same reason</li>
-						<li><b>Length of Segment:</b>An advertisement is never longer than a minute, while music
+						<br><li><b>Length of Segment:</b>An advertisement is never longer than a minute, while music
 						is significantly longer.</li>
 					<!-- Stop edit here -->
 						</div>
@@ -244,7 +244,7 @@ implemented to detect these advertisements.
 						
 				</div>
 					<div class="subsection">
-					<div class="heading">2.3Kalman Filter Algorithms - Design and Implementation</div>
+					<div class="heading">2.3 Kalman Filter Algorithms - Design and Implementation</div>
 					<div class="text">
 						Kalman filter is a simple and fast algorithm which can be used to give an estimate of state based on erroneous sensor
 						measurements. In case of linear systems, the estimate comes out to be the best. 
@@ -258,7 +258,7 @@ implemented to detect these advertisements.
 							<li><b>Measurement Update Step</b></li>
 						</ol>
 					<div class="image">
-					<img src="kalman.jpg" alt="This text displays when the image is umavailable" width="300px" height=""/>
+					<img src="Kalman1.jpg" alt="This text displays when the image is umavailable" />
 						</div>
 						
 					<br><b>Use of Kalman Filter in Commercial Detection:</b>
@@ -269,7 +269,7 @@ implemented to detect these advertisements.
 						and if it comes as negative it is considered music.
 						<br>In every clip:
 						<ol>
-							<li><b>Features are extracted</b>, and these features are used as used as sensor readings.</li>
+							<li>Features are extracted, and these features are used as used as sensor readings.</li>
 							<li><b>Measurement Update:</b> The sensor readings lead to a measurement in state. X and P 
 							are updated.</li>
 							<li><b>Motion Update:</b> The state is moved closer to origin and the uncertainly (P) is increased.</li>
